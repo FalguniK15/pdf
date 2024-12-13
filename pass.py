@@ -4,7 +4,7 @@ import os
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(_name_)
-app.config['SECRET_KEY'] = 'your_secret_key'
+app.config['SECRET_KEY'] = '2003'
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -29,7 +29,7 @@ def login():
         user = load_user(username)
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return redirect(url_for('protected_file'))
+            return redirect(url_for('C:\Users\fhkul\Downloads\Docker Desktop Installation.pdf'))
         else:
             return 'Invalid credentials'
     return render_template('login.html')
@@ -45,8 +45,8 @@ def logout():
 def protected_file():
     # Implement file encryption and time-limited download link generation here
     # For example, using a library like PyCryptodome
-    filename = 'protected_file.pdf'
-    filepath = os.path.join('protected_files', filename)
+    filename = 'Docker Desktop Installation.pdf'
+    filepath = os.path.join('C:\Users\fhkul\Downloads\Docker Desktop Installation.pdf')
     
     # Generate a time-limited download link (e.g., using a URL shortener with expiration)
     download_link = generate_download_link(filepath, expiration_time=300)
